@@ -13,9 +13,12 @@ namespace OfType
         {
             CheckNullArgument(enumerable);
             List<T> listOfType = new List<T>();
-            foreach (T item in enumerable)
+            foreach (object item in enumerable)
             {
-                listOfType.Add(item); 
+                if (item is T output)
+                {
+                    listOfType.Add(output);
+                }
             }
 
             return listOfType;
@@ -40,9 +43,12 @@ namespace OfType
         {
             CheckNullArgument(derivedItems);
             List<TBase> listOfType = new List<TBase>();
-            foreach (TBase item in derivedItems)
+            foreach (TDerived item in derivedItems)
             {
-                listOfType.Add(item);
+                if (item is TBase targetType)
+                {
+                    listOfType.Add(targetType);
+                }
             }
 
             return listOfType;
