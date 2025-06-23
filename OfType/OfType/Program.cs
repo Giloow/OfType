@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Net.Http.Headers;
 
-ArrayList al = new ArrayList() { 2, "abc" , 3, 5, 6, 7, 2.3 , false, 5.5 , true, DateTime.Now, 999 };
 OfType.OfType a = new OfType.OfType();
-IEnumerable<int> lst = a.GetOfType<int>(al);
+List<Exception> lst = new List<Exception>() { new Exception() , new ArgumentNullException(),new DivideByZeroException() };
+IEnumerable<ArgumentException> wow = a.GetOfType<Exception, ArgumentException>(lst);
 
-foreach (int i in lst)
+foreach (ArgumentException i in wow)
 {
-    Console.WriteLine(i);
+    Console.WriteLine(wow);
 }
